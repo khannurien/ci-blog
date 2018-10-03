@@ -28,28 +28,41 @@
 
 				    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
-						    <li class="nav-item active">
-								<a class="nav-link" href="/drawers">Drawers</a>
-						    </li>
+							<?php 
+								// header public items array
+								foreach ($this->config->item('header_public_items') as $item_name => $item_url): ?>
+									<li class="nav-item <?= ($this->uri->uri_string === $item_url ? 'active' : '') ?>">
+									<a class="nav-link" href="<?= '/' . $item_url; ?>"><?= $item_name; ?></a>
+							    </li>
+							<?php endforeach; ?>
 
 						    <?php if($this->session->usr_nick): ?>
-								<?php if($this->session->prf_act === 'A'): ?>
-								    <li class="nav-item">
-										<a class="nav-link" href="/posts/create">New post</a>
-								    </li>
-								<?php endif; ?>
-								<li class="nav-item">
-								    <a class="nav-link" href="/logout">Logout</a>
-								</li>
-						    <?php else: ?>
-								<li class="nav-item">
-								    <a class="nav-link" href="/login">Login</a>
-								</li>
-								<li class="nav-item">
-								    <a class="nav-link" href="/register">Register</a>
-								</li>
-						    <?php endif; ?>
+								<?php 
+									// header loggedIn items array
+									foreach ($this->config->item('header_loggedIn_items') as $item_name => $item_url): ?>
+										<li class="nav-item <?= ($this->uri->uri_string === $item_url ? 'active' : '') ?>">
+											<a class="nav-link" href="<?= '/' . $item_url; ?>"><?= $item_name; ?></a>
+									    </li>
+								<?php endforeach; ?>
 
+								<?php if($this->session->prf_act === 'A'): ?>
+									<?php 
+										// header private items array
+										foreach ($this->config->item('header_private_items') as $item_name => $item_url): ?>
+											<li class="nav-item <?= ($this->uri->uri_string === $item_url ? 'active' : '') ?>">
+												<a class="nav-link" href="<?= '/' . $item_url; ?>"><sub><?= $item_name; ?></sub></a>
+										    </li>
+										<?php endforeach; ?>
+								<?php endif; ?>
+								<?php else: ?>
+									<?php 
+										// header loggedOut items array
+										foreach ($this->config->item('header_loggedOut_items') as $item_name => $item_url): ?>
+											<li class="nav-item <?= ($this->uri->uri_string === $item_url ? 'active' : '') ?>">
+												<a class="nav-link" href="<?= '/' . $item_url; ?>"><?= $item_name; ?></a>
+										    </li>
+									<?php endforeach; ?>
+						    <?php endif; ?>
 						</ul>
 				    </div>
 				</nav>
