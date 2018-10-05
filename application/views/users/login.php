@@ -29,7 +29,7 @@
 								<input class="form-control pl-2" id="password" name="password" type="password" placeholder="Password" />
 							</div>
 
-							<button class="btn btn-primary mb-2" type="submit" name="submit">Valider</button>
+							<button class="btn btn-primary mb-2" type="submit" name="submit">Submit</button>
 						</form>
 					</div>
 				</div>

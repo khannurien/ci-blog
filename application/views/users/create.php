@@ -47,7 +47,9 @@
                                     <input type="password" class="form-control" name="passwordcheck" />
                                 </div>
 
-                                <input class="btn btn-primary float-right" type="submit" name="submit" value="Submit" />
+								<div class="text-right">
+	                                <input class="btn btn-primary" type="submit" name="submit" value="Submit" />
+								</div>
 
                             </div>
                         </form>

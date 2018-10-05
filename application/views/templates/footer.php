@@ -15,7 +15,7 @@
         <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
         
         <script>
-            var simplemde = new SimpleMDE({ element: $("#simplemde")[0] });
+            var simplemde = new SimpleMDE({ element: $("#simplemde")[0], status: false });
         </script>
     </body>
 </html>
