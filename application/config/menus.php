@@ -16,6 +16,7 @@ $config['header_loggedIn_items'] = array(
 
 $config['header_private_items'] = array(
 	'new post' => 'posts/create',
-	'new drawer' => 'drawers/create'
+	'new drawer' => 'drawers/create',
+	'users' => 'users'
 );
 ?>

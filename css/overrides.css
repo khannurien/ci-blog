@@ -27,7 +27,7 @@ body {
 	/* Margin bottom by footer height */
 	margin-bottom: 5rem;
 	font-family: "Playfair Display", serif !important;
-	background: url('/css/img/background.jpg') #fff no-repeat fixed !important;
+	background: url('/css/img/background.jpg') #fff repeat fixed !important;
 	background-size: auto;
 }
 
