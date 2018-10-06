@@ -16,6 +16,7 @@ class Users extends CI_Controller {
 	{
         // users array
 		$data['users'] = $this->users_model->get_users();
+		$data = $this->security->xss_clean($data);
 
 		$data['title'] = 'Users';
 
@@ -30,6 +31,7 @@ class Users extends CI_Controller {
 	{
         // user row array
         $data['users_item'] = $this->users_model->get_users($nick);
+		$data = $this->security->xss_clean($data);
 
         if (empty($data['users_item'])) {
             show_404();
@@ -115,6 +117,7 @@ class Users extends CI_Controller {
 			$this->load->view('users/login');
 		} else {
 			$data = $this->users_model->check_user($nick, $pass);
+			$data = $this->security->xss_clean($data);
 
 			if ($data) {
 				$this->session->set_userdata('usr_id', $data['usr_id']);

@@ -11,6 +11,7 @@ class Drawers extends CI_Controller {
 	public function index()
 	{
 		$data['drawers'] = $this->drawers_model->get_drawers();
+		$data = $this->security->xss_clean($data);
 		$data['title'] = 'Drawers';
 
 		$Parsedown = new ParsedownExtra();
@@ -29,6 +30,7 @@ class Drawers extends CI_Controller {
 	public function view($slug = NULL, $id = NULL)
 	{
 		$data['drawers_item'] = $this->drawers_model->get_drawers($slug, $id);
+		$data = $this->security->xss_clean($data);
 
 		if (empty($data['drawers_item'])) {
 			show_404();
@@ -92,6 +94,7 @@ class Drawers extends CI_Controller {
 		$this->load->library('form_validation');
 
 		$data['drawers_item'] = $this->drawers_model->get_drawers($slug, $id);
+		$data = $this->security->xss_clean($data);
 
 		if (empty($data['drawers_item'])) {
 			show_404();

@@ -17,6 +17,7 @@ class Posts extends CI_Controller {
 	public function index()
 	{
 		$data['posts'] = $this->posts_model->get_posts();
+		$data = $this->security->xss_clean($data);
 		$data['title'] = 'Posts';
 
 		$Parsedown = new ParsedownExtra();
@@ -35,6 +36,7 @@ class Posts extends CI_Controller {
 	public function view($slug = NULL, $id = NULL)
 	{
 		$data['posts_item'] = $this->posts_model->get_posts($slug, $id);
+		$data = $this->security->xss_clean($data);
 
         if (empty($data['posts_item'])) {
 		    show_404();
@@ -100,6 +102,7 @@ class Posts extends CI_Controller {
 
         // drawers table
         $data['drawers'] = $this->drawers_model->get_drawers();
+		$data = $this->security->xss_clean($data);
 
 		$this->form_validation->set_rules('title', 'Title', 'required');
 		$this->form_validation->set_rules('text', 'Content', 'required');
