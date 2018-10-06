@@ -63,7 +63,7 @@ class Users extends CI_Controller {
 
 		$data['title'] = 'Register';
 
-		$this->form_validation->set_rules('username', 'Username', 'required|is_unique[usr.usr_nick]');
+		$this->form_validation->set_rules('username', 'Username', 'required|alpha_dash|is_unique[usr.usr_nick]');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('passwordcheck', 'Password (check)', 'required|matches[password]');
 		$this->form_validation->set_rules('mail', 'Mail', 'required|valid_email|is_unique[prf.prf_mail]');
