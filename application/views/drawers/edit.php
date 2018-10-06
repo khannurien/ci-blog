@@ -8,7 +8,7 @@
 						</div>
 					'); ?>
 
-                    <?php echo form_open('drawers/edit/' . $drawers_item['drawer_slug'] . '/' . $drawers_item['drawer_id']); ?>
+                    <?php echo form_open('drawers/edit/' . $drawers_item['drawer_id']); ?>
                         <div class="form-group">
 
                             <label class="sr-only" for="title">Title</label>

@@ -62,11 +62,13 @@ $route['posts'] = 'posts';
 $route['drawers'] = 'drawers';
 
 $route['drawers/create'] = 'drawers/create';
-$route['drawers/edit/(:any)/(:num)'] = 'drawers/edit/$1/$2';
+$route['drawers/edit/(:num)'] = 'drawers/edit/$1';
+$route['drawers/delete/(:num)'] = 'drawers/delete/$1';
 $route['drawers/(:any)/(:num)'] = 'drawers/view/$1/$2';
 
 $route['posts/create'] = 'posts/create';
-$route['posts/edit/(:any)/(:num)'] = 'posts/edit/$1/$2';
+$route['posts/edit/(:num)'] = 'posts/edit/$1';
+$route['posts/delete/(:num)'] = 'posts/delete/$1';
 $route['posts/(:any)/(:num)'] = 'posts/view/$1/$2';
 
 $route['(:any)'] = 'pages/view/$1';

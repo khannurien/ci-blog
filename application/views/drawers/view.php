@@ -17,7 +17,7 @@
 							<div class="card-footer text-muted">
 								<?php if ($this->session->prf_act === 'A'): ?>
 									<div class="btn-group">
-										<a class="btn" href="<?= base_url('drawers/edit/' . $drawers_item['drawer_slug'] . '/' . $drawers_item['drawer_id']) ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+										<a class="btn" href="<?= base_url('drawers/edit/' . $drawers_item['drawer_id']) ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 										<a class="btn" href="#" data-toggle="modal" data-target="#deleteDrawerConfirm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 									</div>
 								<?php endif; ?>
@@ -38,7 +38,7 @@
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-											<a class="btn btn-danger" href="<?= base_url('drawers/delete/' . $drawers_item['drawer_slug'] . '/' . $drawers_item['drawer_id']) ?>">Sure!</a>
+											<a class="btn btn-danger" href="<?= base_url('drawers/delete/' . $drawers_item['drawer_id']) ?>">Sure!</a>
 										</div>
 									</div>
 								</div>
@@ -59,7 +59,7 @@
 							<div class="card-footer text-muted">
 								<?php if ($this->session->prf_act === 'A'): ?>
 									<div class="btn-group">
-										<a class="btn" href="<?= base_url('posts/edit/' . $posts_item['post_slug'] . '/' . $posts_item['post_id']) ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+										<a class="btn" href="<?= base_url('posts/edit/' . $posts_item['post_id']) ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 										<a class="btn" href="#" data-toggle="modal" data-target="#deletePostConfirm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 									</div>
 								<?php endif; ?>
@@ -82,7 +82,7 @@
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-											<a class="btn btn-danger" href="<?= base_url('posts/delete/' . $posts_item['post_slug'] . '/' . $posts_item['post_id']) ?>">Sure!</a>
+											<a class="btn btn-danger" href="<?= base_url('posts/delete/' . $posts_item['post_id']) ?>">Sure!</a>
 										</div>
 									</div>
 								</div>

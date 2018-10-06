@@ -85,14 +85,14 @@ class Posts extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function edit($slug, $id)
+	public function edit($id)
 	{
 		// permissions test
 		if ($this->session->prf_act != "A") {
 			redirect('/posts');
 		}
 
-		$data['posts_item'] = $this->posts_model->get_posts($slug, $id);
+		$data['posts_item'] = $this->posts_model->get_posts(FALSE, $id);
 
 		if (empty($data['posts_item'])) {
 			show_404();
@@ -122,14 +122,14 @@ class Posts extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function delete($slug, $id)
+	public function delete($id)
 	{
 		// permissions test
 		if ($this->session->prf_act != "A") {
 			redirect('/posts');
 		}
 
-		$this->posts_model->delete_post($slug, $id);
+		$this->posts_model->delete_post($id);
 		redirect ('/posts');
 	}
 }

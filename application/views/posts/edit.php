@@ -8,7 +8,7 @@
 						</div>
 					'); ?>
 
-                    <?php echo form_open('posts/edit/' . $posts_item['post_slug'] . '/' . $posts_item['post_id']); ?>
+                    <?php echo form_open('posts/edit/' . $posts_item['post_id']); ?>
                         <div class="form-group pb-5 mb-4">
 
                             <div class="input-group">

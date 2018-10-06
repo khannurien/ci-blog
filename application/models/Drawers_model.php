@@ -6,21 +6,20 @@ class Drawers_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('drawers');
 
-        if ($slug === FALSE || $id === FALSE) {
+        if ($slug === FALSE && $id === FALSE) {
             $this->db->order_by('drawer_title');
             $query = $this->db->get();
 
             return $query->result_array();
         }
 
-        $this->db->where('drawer_slug', $slug);
         $this->db->where('drawer_id', $id);
         $query = $this->db->get();
 
         return $query->row_array();
     }
 
-	public function set_drawer($slug = FALSE, $id = FALSE)
+	public function set_drawer($id = FALSE)
 	{
 		$this->load->helper('text');
 
@@ -32,7 +31,7 @@ class Drawers_model extends CI_Model {
 		);
 
 		// create
-		if ($slug === FALSE || $id === FALSE) {
+		if ($id === FALSE) {
 			$data['drawer_slug'] = $drawer_slug;
 
             return $this->db->insert('drawers', $data);
@@ -40,14 +39,13 @@ class Drawers_model extends CI_Model {
 		// update
 		} else {
 			$this->db->where('drawer_id', $id);
-			$this->db->where('drawer_slug', $slug);
 			return $this->db->update('drawers', $data);
 		}
 	}
 
-	public function delete_drawer($slug, $id)
+	public function delete_drawer($id)
 	{
-		return $this->db->delete('drawers', array('drawer_slug' => $slug, 'drawer_id' => $id));
+		return $this->db->delete('drawers', array('drawer_id' => $id));
 	}
 
 	public function get_drawerPosts($id)

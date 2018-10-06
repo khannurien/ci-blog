@@ -83,14 +83,14 @@ class Users extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-    public function delete($nick, $id)
+    public function delete($id)
     {
 		// permissions test
 		if ($this->session->prf_act != "A") {
 			redirect('/users');
 		}
 
-        $this->users_model->delete_user($nick, $id);
+        $this->users_model->delete_user($id);
         redirect ('/users');
     }
 

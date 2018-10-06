@@ -83,17 +83,17 @@ class Drawers extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function edit($slug, $id)
+	public function edit($id)
 	{
 		// permissions test
 		if ($this->session->prf_act != "A") {
-			redirect('/users');
+			redirect('/');
 		}
 
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$data['drawers_item'] = $this->drawers_model->get_drawers($slug, $id);
+		$data['drawers_item'] = $this->drawers_model->get_drawers(FALSE, $id);
 		$data = $this->security->xss_clean($data);
 
 		if (empty($data['drawers_item'])) {
@@ -112,21 +112,21 @@ class Drawers extends CI_Controller {
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('drawers/edit', $data);
 		} else {
-			$this->drawers_model->set_drawer($slug, $id);
-			redirect('/drawers/' . $slug . '/' . $id);
+			$this->drawers_model->set_drawer($id);
+			redirect('/drawers/' . $data['drawers_item']['drawer_slug'] . '/' . $id);
 		}
 
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function delete($slug, $id)
+	public function delete($id)
 	{
 		// permissions test
 		if ($this->session->prf_act != "A") {
-			redirect('/users');
+			redirect('/');
 		}
 
-		$this->drawers_model->delete_drawer($slug, $id);
+		$this->drawers_model->delete_drawer($id);
 		redirect ('/drawers');
 	}
 }

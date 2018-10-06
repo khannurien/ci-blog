@@ -75,9 +75,9 @@ class Users_model extends CI_Model {
 		}
 	}
 
-	public function delete_user($nick, $id)
+	public function delete_user($id)
 	{
-		return $this->db->delete('usr', array('usr_nick' => $nick, 'usr_id' => $id));
+		return $this->db->delete('usr', array('usr_id' => $id));
 	}
 
 	public function get_userPosts($nick)
