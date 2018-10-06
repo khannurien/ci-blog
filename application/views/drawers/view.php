@@ -17,8 +17,8 @@
 							<div class="card-footer text-muted">
 								<?php if ($this->session->prf_act === 'A'): ?>
 									<div class="btn-group">
-										<a class="btn btn-primary-outline" href="<?= base_url('drawers/edit/' . $drawers_item['drawer_slug'] . '/' . $drawers_item['drawer_id']) ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-										<a class="btn btn-primary-outline" href="#" data-toggle="modal" data-target="#deleteDrawerConfirm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+										<a class="btn" href="<?= base_url('drawers/edit/' . $drawers_item['drawer_slug'] . '/' . $drawers_item['drawer_id']) ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+										<a class="btn" href="#" data-toggle="modal" data-target="#deleteDrawerConfirm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 									</div>
 								<?php endif; ?>
 							</div>
@@ -51,7 +51,7 @@
 
 						<div class="card mb-4">
 							<a href="<?= base_url('/posts/view/' . $posts_item['post_slug'] . '/' . $posts_item['post_id']); ?>"></a>
-							<div class="card-img-top post-featured-image"><img src="<?= $posts_item['post_image']; ?>" /></div>
+							<img class="card-img-top" src="<?= $posts_item['post_image']; ?>" alt="<?= $posts_item['post_title']; ?>" />
 							<div class="card-body">
 								<h5 class="card-title"><?= $posts_item['post_title']; ?></h5>
 								<div class="card-text"><?= word_limiter($posts_item['post_text'], 140); ?></div>
@@ -59,11 +59,11 @@
 							<div class="card-footer text-muted">
 								<?php if ($this->session->prf_act === 'A'): ?>
 									<div class="btn-group">
-										<a class="btn btn-primary-outline" href="<?= base_url('posts/edit/' . $posts_item['post_slug'] . '/' . $posts_item['post_id']) ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-										<a class="btn btn-primary-outline" href="#" data-toggle="modal" data-target="#deletePostConfirm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+										<a class="btn" href="<?= base_url('posts/edit/' . $posts_item['post_slug'] . '/' . $posts_item['post_id']) ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+										<a class="btn" href="#" data-toggle="modal" data-target="#deletePostConfirm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 									</div>
 								<?php endif; ?>
-								<small><?= timespan(human_to_unix($posts_item['post_date']), time()) ?> ago</small>
+								<small><?= timespan(human_to_unix($posts_item['post_date']), time(), 1); ?> ago</small>
 								<small class="position-relative">by <a href="<?= base_url('profile/' . $posts_item['usr_nick']); ?>"><?= $posts_item['usr_nick']; ?></a> in <a href="<?= base_url('drawers/' . $posts_item['drawer_slug'] . '/' . $posts_item['drawer_id']); ?>"><?= $posts_item['drawer_title']; ?></a></small>
 							</div>
 

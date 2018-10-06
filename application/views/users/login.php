@@ -1,3 +1,12 @@
+				<?php if(isset($valid_user)): ?>
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						<p><?= $valid_user; ?></p>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				<?php endif; ?>
+
 				<?php echo validation_errors('
 					<div class="alert alert-warning alert-dismissible fade show" role="alert">
 						<p>',

@@ -18,8 +18,8 @@
 							<div class="card-footer text-muted">
 								<?php if ($this->session->prf_act === 'A'): ?>
 									<div class="btn-group">
-										<a class="btn btn-primary-outline" href="<?= base_url('drawers/edit/' . $drawers_item['drawer_slug'] . '/' . $drawers_item['drawer_id']) ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-										<a class="btn btn-primary-outline" href="#" data-toggle="modal" data-target="#deleteConfirm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+										<a class="btn" href="<?= base_url('drawers/edit/' . $drawers_item['drawer_slug'] . '/' . $drawers_item['drawer_id']) ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+										<a class="btn" href="#" data-toggle="modal" data-target="#deleteConfirm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 									</div>
 								<?php endif; ?>
 							</div>

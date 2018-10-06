@@ -1,1 +1,1 @@
-            <main role="main" class="container justify-content-center">
+            <main class="container justify-content-center">

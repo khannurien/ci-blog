@@ -96,18 +96,6 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 125%;
 }
 
-/* Posts
--------------------------------------------------- */
-div.post-featured-image {
-		background: #f7f7f7;
-		max-height: 15rem;
-		overflow: hidden;
-}
-
-div.post-featured-image img {
-		width: 100%;
-}
-
 /* Editor
 -------------------------------------------------- */
 div.editor-toolbar {

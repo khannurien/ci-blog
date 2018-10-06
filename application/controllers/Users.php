@@ -101,11 +101,11 @@ class Users extends CI_Controller {
 
 		$data['title'] = 'Login';
 
-		$this->form_validation->set_rules('username', 'Username', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required');
-
         $nick = $this->input->post('username');
 	    $pass = hash('sha256', $this->input->post('password'));
+
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -122,7 +122,8 @@ class Users extends CI_Controller {
 				$this->session->set_userdata('prf_act', $data['prf_act']);
 				redirect('/');
 			} else {
-				$this->load->view('users/login');
+				$data['valid_user'] = 'Wrong username and/or password.';
+				$this->load->view('users/login', $data);
 			}
 		}
 
