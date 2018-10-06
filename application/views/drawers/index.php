@@ -19,9 +19,30 @@
 								<?php if ($this->session->prf_act === 'A'): ?>
 									<div class="btn-group">
 										<a class="btn btn-primary-outline" href="<?= base_url('drawers/edit/' . $drawers_item['drawer_slug'] . '/' . $drawers_item['drawer_id']) ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-										<a class="btn btn-primary-outline" href="<?= base_url('drawers/delete/' . $drawers_item['drawer_slug'] . '/' . $drawers_item['drawer_id']) ?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+										<a class="btn btn-primary-outline" href="#" data-toggle="modal" data-target="#deleteConfirm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 									</div>
 								<?php endif; ?>
+							</div>
+
+							<div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmTitle" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="deleteConfirmTitle">Delete drawer</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<p>You are about to delete this drawer: <i><?= $drawers_item['drawer_title']; ?></i></p>
+											<p>Are you sure about that?</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+											<a class="btn btn-danger" href="<?= base_url('drawers/delete/' . $drawers_item['drawer_slug'] . '/' . $drawers_item['drawer_id']) ?>">Sure!</a>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 

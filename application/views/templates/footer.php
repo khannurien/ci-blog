@@ -4,7 +4,8 @@
         <footer class="footer">
             <div class="container">
                 <small class="text-muted"><a href="https://zbeul.org">ｍｏｖｅ　ａｌｏｎｇ　こ恩せ</a></small>
-				<span class="float-right"><a href="https://www.codeigniter.com/"><img src="https://www.codeigniter.com/assets/images/ci-logo-big.png" alt="CodeIgniter" style="width: 24.8px; height: 32px;" /></a></span>
+				<span class="float-right ml-4"><a href="https://codeigniter.com/"><img src="/css/img/ci-logo.png" alt="CodeIgniter" style="width: 24.8px; height: 32px;" /></a></span>
+				<span class="float-right"><a href="https://getbootstrap.com/"><img src="/css/img/bootstrap-logo.png" alt="Bootstrap" style="width: 32px; height: 32px;" /></a></span>
             </div>
         </footer>
 

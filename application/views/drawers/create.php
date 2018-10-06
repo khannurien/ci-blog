@@ -10,14 +10,14 @@
 
                     <?php echo form_open('drawers/create'); ?>
                         <div class="form-group">
-
                             <label class="sr-only" for="title">Title</label>
-                            <input class="form-control" type="input" name="title" placeholder="An interesting title..." value="<?php echo set_value('title'); ?>" /><br />
+                            <input class="form-control mb-2" type="input" name="title" placeholder="An interesting title..." value="<?php echo set_value('title'); ?>" />
 
                             <label class="sr-only" for="text">Content</label>
-                            <textarea class="form-control" rows="15" id="simplemde" name="text" placeholder="Blah blah blah..."><?php echo set_value('text'); ?></textarea><br />
+                            <textarea class="form-control mb-2" rows="15" id="simplemde" name="text" placeholder="Blah blah blah..."><?php echo set_value('text'); ?></textarea>
 
-                            <input class="btn btn-primary float-right" type="submit" name="submit" value="Submit" />
-
+							<div class="text-right mt-4">
+	                            <input class="btn btn-primary" type="submit" name="submit" value="Submit" />
+							</div>
                         </div>
                     </form>

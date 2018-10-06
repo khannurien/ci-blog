@@ -4,8 +4,6 @@ class Posts_model extends CI_Model {
 	{
         $this->load->model('drawers_model');
 		$this->load->model('users_model');
-
-		$this->load->helper('text');
 	}
 
 	public function get_posts($slug = FALSE, $id = FALSE)
