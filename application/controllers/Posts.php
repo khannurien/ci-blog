@@ -3,12 +3,12 @@ class Posts extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('drawers_model');
+		$this->load->model('drawers_model');
 		$this->load->model('posts_model');
 		$this->load->model('users_model');
 
-        $this->load->library('parsedown');
-        $this->load->library('parsedownExtra');
+		$this->load->library('parsedown');
+		$this->load->library('parsedownExtra');
 		$this->load->library('form_validation');
 
 		$this->load->helper('form');
@@ -38,15 +38,15 @@ class Posts extends CI_Controller {
 		$data['posts_item'] = $this->posts_model->get_posts($slug, $id);
 		$data = $this->security->xss_clean($data);
 
-        if (empty($data['posts_item'])) {
-		    show_404();
+		if (empty($data['posts_item'])) {
+			show_404();
 		}
 
-        $Parsedown = new Parsedown();
-        $md = $Parsedown->text($data['posts_item']['post_text']);
+		$Parsedown = new Parsedown();
+		$md = $Parsedown->text($data['posts_item']['post_text']);
 
 		$data['title'] = $data['posts_item']['post_title'];
-        $data['posts_item']['post_text'] = $md;
+		$data['posts_item']['post_text'] = $md;
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -64,8 +64,8 @@ class Posts extends CI_Controller {
 
 		$data['title'] = 'Create new post';
 
-        // drawers table
-        $data['drawers'] = $this->drawers_model->get_drawers();
+		// drawers table
+		$data['drawers'] = $this->drawers_model->get_drawers();
 
 		$this->form_validation->set_rules('title', 'Title', 'required');
 		$this->form_validation->set_rules('text', 'Content', 'required');
@@ -100,8 +100,8 @@ class Posts extends CI_Controller {
 
 		$data['title'] = 'Edit post';
 
-        // drawers table
-        $data['drawers'] = $this->drawers_model->get_drawers();
+		// drawers table
+		$data['drawers'] = $this->drawers_model->get_drawers();
 		$data = $this->security->xss_clean($data);
 
 		$this->form_validation->set_rules('title', 'Title', 'required');

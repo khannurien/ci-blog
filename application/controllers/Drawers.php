@@ -43,9 +43,9 @@ class Drawers extends CI_Controller {
 		$data['drawers_item']['drawer_text'] = $md;
 
 		$data['posts'] = $this->drawers_model->get_drawerPosts($id);
-        foreach ($data['posts'] as &$posts_item) {
-            $posts_item['post_text'] = $Parsedown->text($posts_item['post_text']);
-        }
+		foreach ($data['posts'] as &$posts_item) {
+			$posts_item['post_text'] = $Parsedown->text($posts_item['post_text']);
+		}
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
