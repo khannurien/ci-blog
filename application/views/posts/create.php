@@ -27,9 +27,9 @@
 
 						<div class="form-group">
                             <label class="sr-only" for="text">Content</label>
-                            <textarea class="form-control" rows="15" id="simplemde" name="text" placeholder="Blah blah blah..."><?php echo set_value('text'); ?></textarea><br />
+                            <textarea class="form-control" rows="15" id="simplemde" name="text" placeholder="Blah blah blah..."><?php echo set_value('text'); ?></textarea>
 
-							<div class="text-right">
+							<div class="text-right mt-2">
 								<input class="btn btn-primary" type="submit" name="submit" value="Submit" />
 							</div>
                         </div>

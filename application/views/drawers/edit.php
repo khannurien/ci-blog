@@ -9,15 +9,19 @@
 					'); ?>
 
                     <?php echo form_open('drawers/edit/' . $drawers_item['drawer_id']); ?>
-                        <div class="form-group">
+						<div class="form-row mb-2">
+							<div class="col">
+	                            <label class="sr-only" for="title">Title</label>
+								<input class="form-control" type="input" name="title" value="<?php echo set_value('title', @$drawers_item['drawer_title']); ?>" />
+							</div>
+						</div>
 
-                            <label class="sr-only" for="title">Title</label>
-                            <input class="form-control" type="input" name="title" value="<?php echo set_value('title', @$drawers_item['drawer_title']); ?>" /><br />
-
+						<div class="form-group">
                             <label class="sr-only" for="text">Content</label>
-                            <textarea class="form-control" rows="15" id="simplemde" name="text"><?php echo set_value('text', @$drawers_item['drawer_text']); ?></textarea><br />
+							<textarea class="form-control" rows="15" id="simplemde" name="text"><?php echo set_value('text', @$drawers_item['drawer_text']); ?></textarea>
 
-                            <input class="btn btn-primary float-right" type="submit" name="submit" value="Submit" />
-
-                        </div>
+							<div class="text-right mt-2">
+                           		<input class="btn btn-primary float-right" type="submit" name="submit" value="Submit" />
+							</div>
+						</div>
                     </form>
