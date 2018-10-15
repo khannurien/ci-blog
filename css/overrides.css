@@ -89,6 +89,9 @@ div.card-text {
 	overflow: hidden;
 }
 
+img.card-img-top {
+}
+
 /* Titles and text
 -------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
