@@ -22,7 +22,6 @@ class Posts_model extends CI_Model {
 		}
 
 		// single post row array
-		$this->db->where('post_slug', $slug);
 		$this->db->where('post_id', $id);
 		$this->db->join('usr', 'posts.usr_id = usr.usr_id');
 		$this->db->join('drawers', 'posts.drawer_id = drawers.drawer_id');
@@ -33,9 +32,6 @@ class Posts_model extends CI_Model {
 
 	public function set_post($id = FALSE)
 	{
-		// slug generation
-		$post_slug = url_title(convert_accented_characters($this->input->post('title')), 'dash', TRUE);
-
 		// post content
 		$data = array(
 			'post_title' => $this->input->post('title'),
@@ -47,7 +43,7 @@ class Posts_model extends CI_Model {
 		if ($id === FALSE) {
 			$data['usr_id'] = $this->session->usr_id;
 			$data['post_date'] = date('Y-m-d H:i:s');
-			$data['post_slug'] = $post_slug;
+			$data['post_slug'] = url_title(convert_accented_characters($this->input->post('title')), 'dash', TRUE);
 
 			return $this->db->insert('posts', $data);
 

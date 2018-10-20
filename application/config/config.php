@@ -529,3 +529,4 @@ $config['proxy_ips'] = '';
  * |--------------------------------------------------------------------------
  * */
 $config['site_name'] = 'vincent lannurien';
+$config['global_salt'] = '23232f8e6db4fc9b3bfb1521e8ff6e629eaa37da4ad1cfa42f497731e0d82159';

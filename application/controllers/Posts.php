@@ -115,8 +115,8 @@ class Posts extends CI_Controller {
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('posts/edit', $data);
 		} else {
-			$this->posts_model->set_post($slug, $id);
-			redirect('/posts/' . $slug . '/' . $id);
+			$this->posts_model->set_post($id);
+			redirect('/posts/view/' . $data['posts_item']['post_slug'] . '/' . $id);
 		}
 
 		$this->load->view('templates/footer', $data);

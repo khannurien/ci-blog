@@ -104,7 +104,7 @@ class Users extends CI_Controller {
 		$data['title'] = 'Login';
 
 		$nick = $this->input->post('username');
-		$pass = hash('sha256', $this->input->post('password'));
+		$pass = hash('sha256', $this->config->item('global_salt') . $this->input->post('password'));
 
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
@@ -125,7 +125,9 @@ class Users extends CI_Controller {
 				$this->session->set_userdata('prf_act', $data['prf_act']);
 				redirect('/');
 			} else {
-				$data['valid_user'] = 'Wrong username and/or password.';
+				$data = Array(
+						'valid_user' => 'Wrong username and/or password.'
+					);
 				$this->load->view('users/login', $data);
 			}
 		}

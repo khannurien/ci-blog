@@ -41,7 +41,7 @@ class Users_model extends CI_Model {
 	{
 		$data = array(
 			'usr_nick' => $this->input->post('username'),
-			'usr_pass' => hash('sha256', $this->input->post('password'))
+			'usr_pass' => hash('sha256', $this->config->item('global_salt') . $this->input->post('password'))
 		);
 
 		return $this->db->insert('usr', $data);
