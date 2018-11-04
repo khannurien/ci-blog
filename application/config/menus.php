@@ -1,4 +1,13 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/*
+ * | Here begins custom configuration
+ * |--------------------------------------------------------------------------
+ * | Menus
+ * |--------------------------------------------------------------------------
+ * */
+
 /* Header menu */
 $config['header_public_items'] = array(
 	'posts' => 'posts',

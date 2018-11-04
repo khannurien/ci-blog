@@ -103,7 +103,7 @@ $autoload['helper'] = array('date', 'text', 'url');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('menus');
+$autoload['config'] = array('menus', 'upload');
 
 /*
 | -------------------------------------------------------------------

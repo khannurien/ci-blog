@@ -8,7 +8,16 @@
 						</div>
 					'); ?>
 
-					<?php echo form_open('posts/create'); ?>
+					<?php if (isset($upload_error)): ?>
+						<div class="alert alert-warning alert-dismissible fade show" role="alert">
+							<?= $upload_error; ?>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					<?php endif; ?>
+
+					<?php echo form_open_multipart('posts/create'); ?>
 						<div class="form-row mb-2">
 							<div class="col">
 								<label class="sr-only" for="title">Title</label>
@@ -23,6 +32,11 @@
 									<?php endforeach; ?>
 								</select>
 							</div>
+						</div>
+
+						<div class="custom-file mb-2">
+							<input class="custom-file-input" type="file" name="image" id="customFile" required>
+							<label class="custom-file-label text-muted" for="customFile">Choose an image...</label>
 						</div>
 
 						<div class="form-group">

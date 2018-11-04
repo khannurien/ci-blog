@@ -16,6 +16,20 @@ nav.navbar-dark {
 	filter: alpha(opacity=75); /* For IE8 and earlier */
 }
 
+nav a {
+	-webkit-transition: color 500ms ease-out;
+	-moz-transition: color 500ms ease-out;
+	-o-transition: color 500ms ease-out;
+	transition: color 500ms ease-out;
+}
+
+nav a:hover {
+	-webkit-transition: color 500ms ease;
+	-moz-transition: color 500ms ease;
+	-o-transition: color 500ms ease;
+	transition: color 500ms ease;
+}
+
 /* Sticky footer
 -------------------------------------------------- */
 html {
@@ -56,6 +70,22 @@ main {
 	-moz-opacity: 0.5;
 	-khtml-opacity: 0.5;
 	opacity: 0.5;
+	-webkit-transition: opacity 500ms ease-out;
+	-moz-transition: opacity 500ms ease-out;
+	-o-transition: opacity 500ms ease-out;
+	transition: opacity 500ms ease-out;
+}
+
+.footer img:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+	filter: alpha(opacity=75);
+	-moz-opacity: 0.75;
+	-khtml-opacity: 0.75;
+	opacity: 0.75;
+	-webkit-transition: opacity 500ms ease;
+	-moz-transition: opacity 500ms ease;
+	-o-transition: opacity 500ms ease;
+	transition: opacity 500ms ease;
 }
 
 /* Cards

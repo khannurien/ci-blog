@@ -1,7 +1,7 @@
 				<div class="row">
 					<div class="card-deck w-100">
 						<div class="card mb-4">
-							<img class="card-img-top" src="<?= $posts_item['post_image']; ?>" alt="<?= $posts_item['post_title']; ?>" />
+							<img class="card-img-top" src="<?= base_url($this->config->item('upload_path') . $posts_item['post_image']); ?>" alt="<?= $posts_item['post_title']; ?>" />
 
 							<div class="card-body">
 								<h5 class="card-title"><?= $posts_item['post_title']; ?></h5>

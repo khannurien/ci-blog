@@ -62,6 +62,8 @@ class Posts extends CI_Controller {
 			redirect('/posts');
 		}
 
+		$this->load->library('upload');
+
 		$data['title'] = 'Create new post';
 
 		// drawers table
@@ -78,8 +80,13 @@ class Posts extends CI_Controller {
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('posts/create');
 		} else {
-			$this->posts_model->set_post();
-			redirect('/posts');
+			if ($this->upload->do_upload('image')) {
+				$this->posts_model->set_post();
+				redirect('/posts');
+			} else {
+				$data['upload_error'] = array('upload_error' => $this->upload->display_errors());
+				$this->load->view('posts/create', $data['upload_error']);
+			}
 		}
 
 		$this->load->view('templates/footer', $data);

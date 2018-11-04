@@ -32,6 +32,8 @@ class Posts_model extends CI_Model {
 
 	public function set_post($id = FALSE)
 	{
+		$this->load->library('upload');
+
 		// post content
 		$data = array(
 			'post_title' => $this->input->post('title'),
@@ -44,6 +46,7 @@ class Posts_model extends CI_Model {
 			$data['usr_id'] = $this->session->usr_id;
 			$data['post_date'] = date('Y-m-d H:i:s');
 			$data['post_slug'] = url_title(convert_accented_characters($this->input->post('title')), 'dash', TRUE);
+			$data['post_image'] = $this->upload->data('file_name');
 
 			return $this->db->insert('posts', $data);
 
