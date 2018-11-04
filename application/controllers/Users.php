@@ -12,10 +12,10 @@ class Users extends CI_Controller {
 		$this->load->helper('form');
 	}
 
-	public function index()
+	public function index($page = 1)
 	{
 		// users array
-		$data['users'] = $this->users_model->get_users();
+		$data['users'] = $this->users_model->get_users(FALSE, FALSE, $page);
 		$data = $this->security->xss_clean($data);
 
 		$data['title'] = 'Users';
@@ -27,7 +27,7 @@ class Users extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function view($nick = NULL)
+	public function view($nick = NULL, $page = 1)
 	{
 		// user row array
 		$data['users_item'] = $this->users_model->get_users($nick);
@@ -42,7 +42,7 @@ class Users extends CI_Controller {
 		$data['title'] = $data['users_item']['usr_nick'];
 		$data['prf_bio'] = $Parsedown->text($data['users_item']['prf_bio']);
 
-		$data['posts'] = $this->users_model->get_userPosts($nick);
+		$data['posts'] = $this->users_model->get_userPosts($nick, $page);
 		foreach ($data['posts'] as &$posts_item) {
 			$posts_item['post_text'] = $Parsedown->text($posts_item['post_text']);
 		}

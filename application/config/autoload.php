@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'session');
+$autoload['libraries'] = array('database', 'pagination', 'session');
 
 /*
 | -------------------------------------------------------------------
@@ -103,7 +103,7 @@ $autoload['helper'] = array('date', 'text', 'url');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('menus', 'upload');
+$autoload['config'] = array('menus', 'pagination', 'upload');
 
 /*
 | -------------------------------------------------------------------

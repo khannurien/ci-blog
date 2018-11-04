@@ -14,9 +14,10 @@ class Posts extends CI_Controller {
 		$this->load->helper('form');
 	}
 
-	public function index()
+	public function index($page = 1)
 	{
-		$data['posts'] = $this->posts_model->get_posts();
+		// fetch data according to page number, if given any
+		$data['posts'] = $this->posts_model->get_posts(FALSE, FALSE, $page);
 		$data = $this->security->xss_clean($data);
 		$data['title'] = 'Posts';
 

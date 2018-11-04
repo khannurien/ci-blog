@@ -1,13 +1,19 @@
 <?php
 class Users_model extends CI_Model {
 
-	public function get_users($nick = FALSE, $id = FALSE)
+	public function get_users($nick = FALSE, $id = FALSE, $page = 1)
 	{
 		if ($nick === FALSE && $id === FALSE) {
 			$this->db->select('*');
 			$this->db->from('usr');
 			$this->db->join('prf', 'prf.usr_id = usr.usr_id');
 			$this->db->order_by('prf_date', 'desc');
+
+			// paginate
+			$page--;
+			$from = $page * $this->config->item('per_page');
+			$this->db->limit($this->config->item('per_page'), $from);
+
 			$query = $this->db->get();
 
 			return $query->result_array();
@@ -80,7 +86,7 @@ class Users_model extends CI_Model {
 		return $this->db->delete('usr', array('usr_id' => $id));
 	}
 
-	public function get_userPosts($nick)
+	public function get_userPosts($nick, $page = FALSE)
 	{
 		$this->db->select('*');
 		$this->db->from('posts');
@@ -88,6 +94,13 @@ class Users_model extends CI_Model {
 		$this->db->join('usr', 'usr.usr_id = posts.usr_id');
 		$this->db->where('usr.usr_nick', $nick);
 		$this->db->order_by('post_date', 'desc');
+
+		if ($page) {
+			// start at page 0
+			$page--;
+			$from = $page * $this->config->item('per_page');
+			$this->db->limit($this->config->item('per_page'), $from);
+		}
 
 		$query = $this->db->get();
 

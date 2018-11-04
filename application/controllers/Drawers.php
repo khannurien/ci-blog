@@ -27,7 +27,7 @@ class Drawers extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function view($slug = NULL, $id = NULL)
+	public function view($slug = NULL, $id = NULL, $page = NULL)
 	{
 		$data['drawers_item'] = $this->drawers_model->get_drawers($slug, $id);
 		$data = $this->security->xss_clean($data);
@@ -42,7 +42,7 @@ class Drawers extends CI_Controller {
 		$data['title'] = $data['drawers_item']['drawer_title'];
 		$data['drawers_item']['drawer_text'] = $md;
 
-		$data['posts'] = $this->drawers_model->get_drawerPosts($id);
+		$data['posts'] = $this->drawers_model->get_drawerPosts($id, $page);
 		foreach ($data['posts'] as &$posts_item) {
 			$posts_item['post_text'] = $Parsedown->text($posts_item['post_text']);
 		}

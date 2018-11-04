@@ -6,7 +6,7 @@ class Posts_model extends CI_Model {
 		$this->load->model('users_model');
 	}
 
-	public function get_posts($slug = FALSE, $id = FALSE)
+	public function get_posts($slug = FALSE, $id = FALSE, $page = 1)
 	{
 		$this->db->select('*');
 		$this->db->from('posts');
@@ -16,6 +16,12 @@ class Posts_model extends CI_Model {
 			$this->db->join('drawers', 'posts.drawer_id = drawers.drawer_id');
 			$this->db->join('usr', 'posts.usr_id = usr.usr_id');
 			$this->db->order_by('post_date', 'desc');
+
+			// paginate
+			$page--;
+			$from = $page * $this->config->item('per_page');
+			$this->db->limit($this->config->item('per_page'), $from);
+
 			$query = $this->db->get();
 
 			return $query->result_array();

@@ -48,7 +48,7 @@ class Drawers_model extends CI_Model {
 		return $this->db->delete('drawers', array('drawer_id' => $id));
 	}
 
-	public function get_drawerPosts($id)
+	public function get_drawerPosts($id, $page = 1)
 	{
 		$this->db->select('*');
 		$this->db->from('posts');
@@ -56,6 +56,10 @@ class Drawers_model extends CI_Model {
 		$this->db->join('usr', 'usr.usr_id = posts.usr_id');
 		$this->db->where('posts.drawer_id', $id);
 		$this->db->order_by('post_date', 'desc');
+
+		$page--;
+		$from = $page * $this->config->item('per_page');
+		$this->db->limit($this->config->item('per_page'), $from);
 
 		$query = $this->db->get();
 
