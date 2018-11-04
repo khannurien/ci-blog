@@ -58,7 +58,7 @@ class Drawers extends CI_Controller {
 	{
 		// permissions test
 		if ($this->session->prf_act != "A") {
-			redirect('/users');
+			redirect(base_url('drawers'));
 		}
 
 		$this->load->helper('form');
@@ -77,7 +77,7 @@ class Drawers extends CI_Controller {
 			$this->load->view('drawers/create');
 		} else {
 			$this->drawers_model->set_drawer();
-			redirect('/drawers');
+			redirect(base_url('drawers'));
 		}
 
 		$this->load->view('templates/footer', $data);
@@ -87,7 +87,7 @@ class Drawers extends CI_Controller {
 	{
 		// permissions test
 		if ($this->session->prf_act != "A") {
-			redirect('/');
+			redirect(base_url());
 		}
 
 		$this->load->helper('form');
@@ -113,7 +113,7 @@ class Drawers extends CI_Controller {
 			$this->load->view('drawers/edit', $data);
 		} else {
 			$this->drawers_model->set_drawer($id);
-			redirect('/drawers/' . $data['drawers_item']['drawer_slug'] . '/' . $id);
+			redirect(base_url('drawers/' . $data['drawers_item']['drawer_slug'] . '/' . $id));
 		}
 
 		$this->load->view('templates/footer', $data);
@@ -123,10 +123,10 @@ class Drawers extends CI_Controller {
 	{
 		// permissions test
 		if ($this->session->prf_act != "A") {
-			redirect('/');
+			redirect(base_url());
 		}
 
 		$this->drawers_model->delete_drawer($id);
-		redirect ('/drawers');
+		redirect(base_url('drawers'));
 	}
 }

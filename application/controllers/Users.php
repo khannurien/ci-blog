@@ -58,7 +58,7 @@ class Users extends CI_Controller {
 	{
 		// already logged in?
 		if ($this->session->usr_id) {
-			redirect('/');
+			redirect(base_url());
 		}
 
 		$data['title'] = 'Register';
@@ -87,18 +87,18 @@ class Users extends CI_Controller {
 	{
 		// permissions test
 		if ($this->session->prf_act != "A") {
-			redirect('/users');
+			redirect(base_url('users'));
 		}
 
 		$this->users_model->delete_user($id);
-		redirect ('/users');
+		redirect(base_url('users'));
 	}
 
 	public function login()
 	{
 		// already logged in?
 		if ($this->session->usr_id) {
-			redirect('/');
+			redirect(base_url());
 		}
 
 		$data['title'] = 'Login';
@@ -123,7 +123,7 @@ class Users extends CI_Controller {
 				$this->session->set_userdata('usr_id', $data['usr_id']);
 				$this->session->set_userdata('usr_nick', $data['usr_nick']);
 				$this->session->set_userdata('prf_act', $data['prf_act']);
-				redirect('/');
+				redirect(base_url());
 			} else {
 				$data = Array(
 						'valid_user' => 'Wrong username and/or password.'
@@ -139,7 +139,7 @@ class Users extends CI_Controller {
 	{
 		$this->session->sess_destroy();
 
-		redirect('/');
+		redirect(base_url());
 	}
 }
 

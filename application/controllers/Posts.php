@@ -59,7 +59,7 @@ class Posts extends CI_Controller {
 	{
 		// permissions test
 		if ($this->session->prf_act != "A") {
-			redirect('/posts');
+			redirect(base_url('posts'));
 		}
 
 		$this->load->library('upload');
@@ -82,7 +82,7 @@ class Posts extends CI_Controller {
 		} else {
 			if ($this->upload->do_upload('image')) {
 				$this->posts_model->set_post();
-				redirect('/posts');
+				redirect(base_url('posts'));
 			} else {
 				$data['upload_error'] = array('upload_error' => $this->upload->display_errors());
 				$this->load->view('posts/create', $data['upload_error']);
@@ -96,7 +96,7 @@ class Posts extends CI_Controller {
 	{
 		// permissions test
 		if ($this->session->prf_act != "A") {
-			redirect('/posts');
+			redirect(base_url('posts'));
 		}
 
 		$data['posts_item'] = $this->posts_model->get_posts(FALSE, $id);
@@ -123,7 +123,7 @@ class Posts extends CI_Controller {
 			$this->load->view('posts/edit', $data);
 		} else {
 			$this->posts_model->set_post($id);
-			redirect('/posts/view/' . $data['posts_item']['post_slug'] . '/' . $id);
+			redirect(base_url('posts/view/' . $data['posts_item']['post_slug'] . '/' . $id));
 		}
 
 		$this->load->view('templates/footer', $data);
@@ -133,10 +133,10 @@ class Posts extends CI_Controller {
 	{
 		// permissions test
 		if ($this->session->prf_act != "A") {
-			redirect('/posts');
+			redirect(base_url());
 		}
 
 		$this->posts_model->delete_post($id);
-		redirect ('/posts');
+		redirect(base_url('posts'));
 	}
 }
