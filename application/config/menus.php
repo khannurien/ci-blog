@@ -28,4 +28,3 @@ $config['header_private_items'] = array(
 	'new drawer' => 'drawers/create',
 	'users' => 'users'
 );
-?>

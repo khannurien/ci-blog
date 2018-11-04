@@ -8,6 +8,7 @@ class Posts_model extends CI_Model {
 
 	public function get_posts($slug = FALSE, $id = FALSE, $page = 1)
 	{
+		$this->db->start_cache();
 		$this->db->select('*');
 		$this->db->from('posts');
 
@@ -15,9 +16,10 @@ class Posts_model extends CI_Model {
 		if ($slug === FALSE && $id === FALSE) {
 			$this->db->join('drawers', 'posts.drawer_id = drawers.drawer_id');
 			$this->db->join('usr', 'posts.usr_id = usr.usr_id');
-			$this->db->order_by('post_date', 'desc');
+			$this->db->stop_cache();
 
-			// paginate
+			// pagination class
+			$this->db->order_by('post_date', 'desc');
 			$page--;
 			$from = $page * $this->config->item('per_page');
 			$this->db->limit($this->config->item('per_page'), $from);
@@ -66,10 +68,5 @@ class Posts_model extends CI_Model {
 	public function delete_post($id)
 	{
 		return $this->db->delete('posts', array('post_id' => $id));
-	}
-
-	public function total_posts()
-	{
-		return $this->db->count_all_results('posts');
 	}
 }

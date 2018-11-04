@@ -5,7 +5,6 @@
 
 				<div class="row">
 					<div class="card-deck w-100">
-
 					<?php foreach ($posts as $posts_item): ?>
 
 						<div class="card mb-4">
@@ -73,3 +72,7 @@
 					<?php endforeach; ?>
 					</div>
 				</div>
+
+				<nav aria-label="Navigation">
+					<?= $pagination; ?>
+				</nav>
