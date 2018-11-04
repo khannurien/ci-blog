@@ -33,7 +33,6 @@ class Posts extends CI_Controller {
 		$config['total_rows'] = $this->db->count_all_results();
 		$config['uri_segment'] = 2;
 		$this->pagination->initialize($config);
-
 		$data['pagination'] = $this->pagination->create_links();
 
 		$this->load->view('templates/header', $data);

@@ -6,7 +6,6 @@
 				<div class="row">
 					<div class="card-deck w-100">
 					<?php foreach ($posts as $posts_item): ?>
-
 						<div class="card mb-4">
 							<a href="<?= base_url('/posts/view/' . $posts_item['post_slug'] . '/' . $posts_item['post_id']); ?>"></a>
 							<img class="card-img-top" src="<?= base_url($this->config->item('upload_path') . $posts_item['post_image']); ?>" alt="<?= $posts_item['post_title']; ?>" />

@@ -48,7 +48,6 @@
 						<div class="w-100 d-none d-xl-none d-lg-none d-md-block d-sm-block"></div>
 
 						<?php foreach($posts as $posts_item): ?>
-
 						<div class="card mb-4">
 							<a href="<?= base_url('/posts/view/' . $posts_item['post_slug'] . '/' . $posts_item['post_id']); ?>"></a>
 							<img class="card-img-top" src="<?= base_url($this->config->item('upload_path') . $posts_item['post_image']); ?>" alt="<?= $posts_item['post_title']; ?>" />
@@ -112,6 +111,9 @@
 						<?php $i === 5? $i = 1 : $i++; ?>
 
 					<?php endforeach; ?>
-
 					</div>
 				</div>
+
+				<nav aria-label="Navigation">
+					<?= $pagination; ?>
+				</nav>

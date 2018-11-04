@@ -14,7 +14,7 @@ class Users extends CI_Controller {
 
 	public function index($page = 1)
 	{
-		// users array
+		// fetch users array according to page number, if given any
 		$data['users'] = $this->users_model->get_users(FALSE, FALSE, $page);
 		$data = $this->security->xss_clean($data);
 
@@ -46,6 +46,14 @@ class Users extends CI_Controller {
 		foreach ($data['posts'] as &$posts_item) {
 			$posts_item['post_text'] = $Parsedown->text($posts_item['post_text']);
 		}
+
+		// pagination configuration
+		$config = array();
+		$config['base_url'] = base_url('profile/' . $nick);
+		$config['total_rows'] = $this->db->count_all_results();
+		$config['uri_segment'] = 3;
+		$this->pagination->initialize($config);
+		$data['pagination'] = $this->pagination->create_links();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);

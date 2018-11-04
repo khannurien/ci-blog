@@ -47,6 +47,14 @@ class Drawers extends CI_Controller {
 			$posts_item['post_text'] = $Parsedown->text($posts_item['post_text']);
 		}
 
+		// pagination configuration
+		$config = array();
+		$config['base_url'] = base_url('drawers/' . $slug . '/' . $id);
+		$config['total_rows'] = $this->db->count_all_results();
+		$config['uri_segment'] = 5;
+		$this->pagination->initialize($config);
+		$data['pagination'] = $this->pagination->create_links();
+
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/main', $data);
