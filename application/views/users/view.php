@@ -58,7 +58,7 @@
 							<img class="card-img-top" src="<?= base_url($this->config->item('upload_path') . $posts_item['post_image']); ?>" alt="<?= $posts_item['post_title']; ?>" />
 							<div class="card-body">
 								<h5 class="card-title"><?= $posts_item['post_title']; ?></h5>
-								<div class="card-text"><?= word_limiter($posts_item['post_text'], 140); ?></div>
+								<div class="card-text"><?= word_limiter($posts_item['post_text'], 140, '<sub class="ml-2"><a href="' . base_url('/posts/view/' . $posts_item['post_slug'] . '/' . $posts_item['post_id']) . '">[ ›› ]</a></sub>'); ?></div>
 							</div>
 							<div class="card-footer text-muted">
 								<?php if ($this->session->prf_act === 'A'): ?>

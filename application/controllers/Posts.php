@@ -108,7 +108,7 @@ class Posts extends CI_Controller {
 			redirect(base_url('posts'));
 		}
 
-		$data['posts_item'] = $this->posts_model->get_posts(FALSE, $id);
+		$data['posts_item'] = $this->posts_model->get_posts(FALSE, $id, FALSE);
 
 		if (empty($data['posts_item'])) {
 			show_404();

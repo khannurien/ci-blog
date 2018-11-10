@@ -8,7 +8,11 @@ class Posts_model extends CI_Model {
 
 	public function get_posts($slug = FALSE, $id = FALSE, $page = 1)
 	{
-		$this->db->start_cache();
+		// do we need pagination?
+		if ($page !== FALSE) {
+			$this->db->start_cache();
+		}
+
 		$this->db->select('*');
 		$this->db->from('posts');
 
@@ -25,14 +29,19 @@ class Posts_model extends CI_Model {
 			$this->db->limit($this->config->item('per_page'), $from);
 
 			$query = $this->db->get();
-
 			return $query->result_array();
 		}
 
 		// single post row array
-		$this->db->where('post_id', $id);
+		$this->db->where('posts.post_id', $id);
 		$this->db->join('usr', 'posts.usr_id = usr.usr_id');
 		$this->db->join('drawers', 'posts.drawer_id = drawers.drawer_id');
+		
+		// do we need pagination?
+		if ($page !== FALSE) {
+			$this->db->stop_cache();
+		}
+
 		$query = $this->db->get();
 
 		return $query->row_array();
