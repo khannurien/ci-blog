@@ -3,8 +3,8 @@
 
         <footer class="footer">
             <div class="container">
-				<div class="row">
-					<div class="col">
+				<div class="row pt-3">
+					<div class="col pt-1">
 						<small class="text-muted"><a href="https://zbeul.org">ｍｏｖｅ　ａｌｏｎｇ　こ恩せ</a></small>
 					</div>
 					<div class="col-sm text-right">
