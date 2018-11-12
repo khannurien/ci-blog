@@ -120,5 +120,11 @@
 				</div>
 
 				<nav aria-label="Navigation">
-					<?= $pagination; ?>
+					<div class="container mb-4">
+						<div class="d-flex flex-row-reverse">
+							<div class="p-2">
+								<?= $pagination; ?>
+							</div>
+						</div>
+					</div>
 				</nav>

@@ -135,6 +135,7 @@ class Drawers extends CI_Controller {
 		}
 
 		$this->drawers_model->delete_drawer($id);
+
 		redirect(base_url('drawers'));
 	}
 }

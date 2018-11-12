@@ -3,9 +3,15 @@
 
         <footer class="footer">
             <div class="container">
-                <small class="text-muted"><a href="https://zbeul.org">ｍｏｖｅ　ａｌｏｎｇ　こ恩せ</a></small>
-				<span class="float-right ml-4"><a href="https://codeigniter.com/"><img src="/css/img/ci-logo.png" alt="CodeIgniter" style="width: 24.8px; height: 32px;" /></a></span>
-				<span class="float-right"><a href="https://getbootstrap.com/"><img src="/css/img/bootstrap-logo.png" alt="Bootstrap" style="width: 32px; height: 32px;" /></a></span>
+				<div class="row">
+					<div class="col">
+						<small class="text-muted"><a href="https://zbeul.org">ｍｏｖｅ　ａｌｏｎｇ　こ恩せ</a></small>
+					</div>
+					<div class="col-sm text-right">
+						<span class="mr-3"><a href="https://getbootstrap.com/"><img src="/css/img/bootstrap-logo.png" alt="Bootstrap" style="width: 32px; height: 32px;" /></a></span>
+						<span><a href="https://codeigniter.com/"><img src="/css/img/ci-logo.png" alt="CodeIgniter" style="width: 24.8px; height: 32px;" /></a></span>
+					</div>
+				</div>
             </div>
         </footer>
 

@@ -146,6 +146,7 @@ class Posts extends CI_Controller {
 		}
 
 		$this->posts_model->delete_post($id);
+
 		redirect(base_url('posts'));
 	}
 }
