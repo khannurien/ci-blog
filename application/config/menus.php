@@ -10,8 +10,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /* Header menu */
 $config['header_public_items'] = array(
+	'about' => 'about',
 	'posts' => 'posts',
-	'drawers' => 'drawers',
+	'drawers' => 'drawers'
 );
 
 $config['header_loggedOut_items'] = array(

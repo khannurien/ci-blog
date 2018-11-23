@@ -18,7 +18,7 @@
     </head>
 
     <body>
-		<div class="w-100">
+		<div id="barba-wrapper" class="w-100">
 		    <header class="page-header">
 				<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
 				    <a class="navbar-brand" href="<?= base_url(); ?>"><?= $this->config->item('site_name'); ?></a>
@@ -69,4 +69,4 @@
 		    </header>
 		</div>
 
-		<div class="container">
+		<div class="barba-container container">

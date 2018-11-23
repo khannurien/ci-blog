@@ -51,7 +51,7 @@ class Drawers extends CI_Controller {
 		$config = array();
 		$config['base_url'] = base_url('drawers/' . $slug . '/' . $id);
 		$config['total_rows'] = $this->db->count_all_results();
-		$config['uri_segment'] = 5;
+		$config['uri_segment'] = 4;
 		$this->pagination->initialize($config);
 		$data['pagination'] = $this->pagination->create_links();
 
