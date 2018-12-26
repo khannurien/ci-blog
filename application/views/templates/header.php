@@ -31,7 +31,7 @@
 							<?php 
 								// header public items array
 								foreach ($this->config->item('header_public_items') as $item_name => $item_url): ?>
-									<li class="nav-item <?= ($this->uri->uri_string === $item_url ? 'active' : '') ?>">
+									<li class="nav-item <?= ($this->uri->segment(1) === $item_url ? 'active' : '') ?>">
 									<a class="nav-link" href="<?= '/' . $item_url; ?>"><?= $item_name; ?></a>
 							    </li>
 							<?php endforeach; ?>

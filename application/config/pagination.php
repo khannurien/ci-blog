@@ -23,11 +23,11 @@ $config['cur_tag_open'] 	= '<li class="page-item active"><a class="page-link" hr
 $config['cur_tag_close'] 	= '</a> <span class="sr-only">(current)</span></li>';
 
 $config['next_link']		= '&raquo;';
-$config['next_tag_open'] 	= '<li class="page-item">';
+$config['next_tag_open'] 	= '<li class="page-item page-link-next">';
 $config['next_tag_close'] 	= '</li>';
 
 $config['prev_link']		= '&laquo;';
-$config['prev_tag_open'] 	= '<li class="page-item">';
+$config['prev_tag_open'] 	= '<li class="page-item page-link-prev">';
 $config['prev_tag_close'] 	= '</li>';
 
 $config['first_tag_open'] 	= '<li class="page-item">';

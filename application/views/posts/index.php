@@ -3,7 +3,7 @@
 						$i = 1;
 				?>
 
-				<div class="row">
+				<div class="row row-paginate">
 					<div class="card-deck w-100">
 					<?php foreach ($posts as $posts_item): ?>
 						<div class="card mb-4">
@@ -72,7 +72,8 @@
 					</div>
 				</div>
 
-				<nav aria-label="Navigation">
+				<!-- Infinite Scroll is used instead --!>
+				<nav class="d-none" aria-label="Navigation">
 					<div class="container mb-4">
 						<div class="d-flex flex-row-reverse">
 							<div class="p-2">
