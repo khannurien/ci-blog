@@ -72,8 +72,7 @@
 					</div>
 				</div>
 
-				<!-- Infinite Scroll is used instead --!>
-				<nav class="d-none" aria-label="Navigation">
+				<nav class="nav-paginate" aria-label="Navigation">
 					<div class="container mb-4">
 						<div class="d-flex flex-row-reverse">
 							<div class="p-2">

@@ -3,7 +3,7 @@
 						$i = 1;
 				?>
 
-				<div class="row">
+				<div class="row row-paginate">
 					<div class="card-deck w-100">
 						<div class="card mb-4">
 							<img class="card-img-top" src="<?= $users_item['prf_image']; ?>" alt="<?= $users_item['usr_nick']; ?>" />
@@ -119,7 +119,7 @@
 					</div>
 				</div>
 
-				<nav aria-label="Navigation">
+				<nav class="nav-paginate" aria-label="Navigation">
 					<div class="container mb-4">
 						<div class="d-flex flex-row-reverse">
 							<div class="p-2">
